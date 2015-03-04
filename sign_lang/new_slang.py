@@ -1,3 +1,8 @@
+#We are using the Gradient Boosting Classifier
+#Combinations of Logistics Regressions and Gradient Booster ...
+#Not sure, how the results will be in the submitted kaggle file.
+
+
 import numpy as np
 from sklearn.preprocessing import StandardScaler, MinMaxScaler
 from sklearn.ensemble import GradientBoostingClassifier

@@ -1,12 +1,7 @@
-#We are using the Gradient Boosting Classifier
-#Combinations of Logistics Regressions and Gradient Booster ...
-#Not sure, how the results will be in the submitted kaggle file.
-
-
 import numpy as np
 from sklearn.preprocessing import StandardScaler, MinMaxScaler
 from sklearn.ensemble import RandomForestClassifier
-from sklearn.linear_model import LogisticRegression
+
 
 data = np.load('train.npy'); 
 data_test = np.load('test_distribute.npy')
@@ -26,6 +21,5 @@ fout = open('rahul_ram-slang_random_forest_100est_noneMaxDepth.kaggle', 'w')
 fout.write("ID,Category\n");
 for i in range(Y_pred.shape[0]):
       fout.write("\n" + str(i+1) + "," + str(int(Y_pred[i]))) ## str(int(Y_pred[i]
-## now make kaggle submission Y_pred 
 fout.close()
 
