@@ -1,8 +1,9 @@
 #!/bin/pyspark
 import numpy as np
+import time
+from pyspark import SparkContext, SparkConf
 
-
-basepath = '/rahul_extra/Machine Learning/HW3Data/'
+basepath = '/rahul_extra/MachineLearning/HW3Data/'
 
 
 def set_feature(view,f):
@@ -57,8 +58,14 @@ def main():
 			dcollec[key] = x
 		else:
 			print "the key",key,"is not the dcollection... "
+			time.sleep(2)
 	print "the update aggregated data in dcollec is ",dcollec
 
+
+if __name__ == '__main__':
+	conf = SparkConf().setAppName('hw3').setMaster("master")
+	sc = SparkContext(conf=conf)
+	main()
 
 
 '''
