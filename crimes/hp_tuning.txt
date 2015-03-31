@@ -26,3 +26,105 @@ Grid scores on development set:
 -0.058 (+/-0.007) for {'penalty': 'l2', 'C': 5.0}
 -0.039 (+/-0.001) for {'penalty': 'l1', 'C': 10.0}
 -0.060 (+/-0.006) for {'penalty': 'l2', 'C': 10.0}
+
+
+
+With variance threshold
+LogisticRegression(C=8.0, class_weight=None, dual=False, fit_intercept=True,
+          intercept_scaling=1, penalty='l1', random_state=None, tol=0.0001)
+()
+Grid scores on development set:
+()
+-0.043 (+/-0.002) for {'penalty': 'l1', 'C': 5.0}
+-0.063 (+/-0.004) for {'penalty': 'l2', 'C': 5.0}
+-0.041 (+/-0.001) for {'penalty': 'l1', 'C': 6.0}
+-0.060 (+/-0.001) for {'penalty': 'l2', 'C': 6.0}
+-0.041 (+/-0.001) for {'penalty': 'l1', 'C': 7.0}
+-0.061 (+/-0.002) for {'penalty': 'l2', 'C': 7.0}
+-0.040 (+/-0.002) for {'penalty': 'l1', 'C': 8.0}
+-0.068 (+/-0.002) for {'penalty': 'l2', 'C': 8.0}
+-0.040 (+/-0.002) for {'penalty': 'l1', 'C': 9.0}
+-0.061 (+/-0.002) for {'penalty': 'l2', 'C': 9.0}
+
+
+
+=================================
+
+With StandardScaler()
+
+SGDRegressor(alpha=0.0001, epsilon=0.1, eta0=0.01, fit_intercept=True,
+       l1_ratio=0.15, learning_rate='invscaling', loss='huber', n_iter=5,
+       penalty='l1', power_t=0.25, random_state=None, shuffle=False,
+       verbose=0, warm_start=False)
+()
+Grid scores on development set:
+()
+-0.022 (+/-0.002) for {'penalty': 'l1', 'loss': 'squared_loss'}
+-0.022 (+/-0.002) for {'penalty': 'l2', 'loss': 'squared_loss'}
+-0.021 (+/-0.002) for {'penalty': 'l1', 'loss': 'huber'}
+-0.021 (+/-0.002) for {'penalty': 'l2', 'loss': 'huber'}
+
+=================================
+
+Lasso(alpha=0.1, copy_X=True, fit_intercept=True, max_iter=1000,
+   normalize=False, positive=False, precompute='auto', tol=0.0001,
+   warm_start=False)
+()
+Grid scores on development set:
+()
+-0.034 (+/-0.003) for {'alpha': 0.1}
+-0.055 (+/-0.004) for {'alpha': 0.2}
+-0.055 (+/-0.004) for {'alpha': 0.3}
+-0.055 (+/-0.004) for {'alpha': 0.4}
+-0.055 (+/-0.004) for {'alpha': 0.5}
+
+=================================
+
+
+After Recusive Feature Estimation
+the original X is  (1196, 126)
+Optimal number of features : 125
+the new X is  (1196, 125)
+X train shape (801, 125)
+X_test share (395, 125)
+# Tuning hyper-parameters for mean_absolute_error
+()
+Best parameters set found on development set:
+()
+BayesianRidge(alpha_1=1e-06, alpha_2=1e-06, compute_score=False, copy_X=True,
+       fit_intercept=True, lambda_1=1e-06, lambda_2=1e-06, n_iter=100,
+       normalize=False, tol=0.001, verbose=False)
+()
+Grid scores on development set:
+()
+-0.097 (+/-0.003) for {'n_iter': 100}
+-0.097 (+/-0.003) for {'n_iter': 200}
+-0.097 (+/-0.003) for {'n_iter': 300}
+-0.097 (+/-0.003) for {'n_iter': 400}
+-0.097 (+/-0.003) for {'n_iter': 500}
+
+=========================================
+
+
+the original X is  (1196, 126)
+Optimal number of features : 15
+the new X is  (1196, 15)
+X train shape (801, 15)
+X_test share (395, 15)
+# Tuning hyper-parameters for mean_squared_error
+()
+Best parameters set found on development set:
+()
+SGDRegressor(alpha=0.0001, epsilon=0.1, eta0=0.01, fit_intercept=True,
+       l1_ratio=0.15, learning_rate='invscaling', loss='squared_loss',
+       n_iter=5, penalty='l1', power_t=0.25, random_state=None,
+       shuffle=False, verbose=0, warm_start=False)
+()
+Grid scores on development set:
+()
+-0.018 (+/-0.001) for {'penalty': 'l1', 'loss': 'squared_loss'}
+-0.018 (+/-0.001) for {'penalty': 'l2', 'loss': 'squared_loss'}
+-0.018 (+/-0.001) for {'penalty': 'elasticnet', 'loss': 'squared_loss'}
+-0.019 (+/-0.001) for {'penalty': 'l1', 'loss': 'huber'}
+-0.019 (+/-0.001) for {'penalty': 'l2', 'loss': 'huber'}
+-0.019 (+/-0.001) for {'penalty': 'elasticnet', 'loss': 'huber'}
