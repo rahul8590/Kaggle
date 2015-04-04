@@ -2,6 +2,7 @@
 import numpy as np
 import time
 from pyspark import SparkContext, SparkConf
+import matplotlib.pyplot as plt
 
 basepath = '/rahul_extra/MachineLearning/HW3Data/'
 
@@ -45,6 +46,29 @@ def get_target_info():
 	return target
 
 
+def ols(mat):
+	'''
+	mat => dcollec.values()
+	mat contains the entire matrix [1,hr6-hr23]
+	'''
+	y = np.array(mat[0::,-1])
+	x = mat[0:,:-1]
+	#x = np.squeeze(np.asarray(mat[0:,:-1]))
+	#A = np.vstack([x, np.ones(len(x))]).T
+	
+	#below equation solves the least square solution
+	doutput = np.dot(np.linalg.inv(np.dot(x.T,x)),np.dot(x.T,y))
+	print "the dot product output is ",doutput
+
+	output = np.linalg.lstsq(x, y)[0]
+	print "the output for lstsq is ", output
+	''''
+	plt.plot(x, y, 'o', label='Original data', markersize=10)
+	plt.plot(x, m*x + c, 'r', label='Fitted line')
+	plt.legend()
+	plt.show()
+	'''
+
 def main():
 	tfile = readfile()
 	dcollec = create_feature(tfile)
@@ -60,6 +84,8 @@ def main():
 			print "the key",key,"is not the dcollection... "
 			time.sleep(2)
 	print "the update aggregated data in dcollec is ",dcollec
+	mat = np.matrix(dcollec.values())
+	ols(mat)
 
 
 if __name__ == '__main__':
