@@ -32,6 +32,7 @@ def map_group(pgroup):
 	return x
 
 
+#Adding the 23rd hour value to the last position in the array
 def upd_t23(tgbr):
 	key = tgbr[0]
 	hrs = tgbr[1]
@@ -122,6 +123,7 @@ def predict(rdd,weight):
 	print "predicted value is",pval
 
 
+#Function required to calculate RMSE
 def update_yd(d):
 	yd = np.dot(weight.T,d[1][:18])
 	y = d[1][18]
@@ -138,8 +140,6 @@ def main():
 
 	tupdate = tgbr.map(lambda d: (d[0],upd_t23(d)))
 
-	#mat = np.matrix(tupdate.values().collect())
-	#ols(mat)
 
 	#Learning Predictions in here
 	sig1 = tupdate.map(lambda d: (calc(d[1]))).reduce(lambda p,q:np.add(p,q))
@@ -167,6 +167,7 @@ def main():
 	#update_yd needs to know the weight.T before hand
 	tdash = tupdate.map(lambda d: update_yd(d))
 	rmse =  math.sqrt(tdash.mean())
+	print "the rmse error is ", rmse
 
 
 
