@@ -41,7 +41,10 @@ def group(tfile):
 
 def get_target_info():
 	tfile = sc.textFile(basepath+'23.txt')
-	collection = tfile.map(lambda view: ((view.split(' ')[0],view.split(' ')[1]),float(view.split(' ')[2]))).reduceByKey(lambda a,b: a+b).collect()
+	collection = tfile.map(lambda view: ((view.split(' ')[0],view.split(' ')[1]),float(view.split(' ')[2]))) \
+				.reduceByKey(lambda a,b: a+b) \
+				.filter( lambda w: w[0][0] == 'en') \
+				.collect()
 	target = {}
 	for data in collection:
 		target[data[0]] = data[1]
