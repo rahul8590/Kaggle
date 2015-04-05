@@ -3,6 +3,8 @@ import numpy as np
 import time
 from pyspark import SparkContext, SparkConf
 import matplotlib.pyplot as plt
+import math
+
 
 basepath = '/rahul_extra/MachineLearning/HW3Data/'
 
@@ -178,6 +180,7 @@ def main():
 	#-----Code to calculate RMSE--------------------------#
 	#update_yd needs to know the weight.T before hand
 	tdash = tupdate.map(lambda d: update_yd(d))
+	rmse =  math.sqrt(tdash.mean())
 
 
 
