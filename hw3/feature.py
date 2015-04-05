@@ -143,6 +143,10 @@ def main():
 	sig1 = tupdate.map(lambda d: (calc(d[1]))).reduce(lambda p,q:np.add(p,q))
 	sig2 = tupdate.map(lambda d: (calc_s2(d[1]))).reduce(lambda p,q:np.add(p,q))
 
+	weight = np.dot(np.linalg.inv(sig1),sig2)
+	print "the weight vector is",weight
+	print weight.shape
+
 if __name__ == '__main__':
 	conf = SparkConf().setAppName('hw3').setMaster("master")
 	sc = SparkContext(conf=conf)
