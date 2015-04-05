@@ -42,16 +42,15 @@ def upd_t23(tgbr):
 
 
 def group(tfile):
-	tgbr = tfile.map(lambda d: ((d[0][0],d[0][2]),[(d[0][1],d[1])])) \
-				.reduceByKey(lambda p,q:p+q) \
-				.map(lambda d: (d[0], map_group(d)))
-	tgbr.first()
 	'''
-	should output the following 
+	Should output the following 
 	((u'cn', u'suability'),
 		array([  1.,  26.,  38.,  16.,   0.,  33.,  41.,  35.,  13.,  24.,  39.,
          9.,  17.,   0.,  56.,  30.,   0.,   0.,   0.]))
 	'''
+	tgbr = tfile.map(lambda d: ((d[0][0],d[0][2]),[(d[0][1],d[1])])) \
+				.reduceByKey(lambda p,q:p+q) \
+				.map(lambda d: (d[0], map_group(d)))
 	return tgbr
 
 #The below function might soon be deprecated
@@ -100,20 +99,7 @@ def ols(mat):
 	#output = np.linalg.lstsq(x, y)[0]
 	#print "the output for lstsq is ", output
 
-	'''
-	print "calc ydash, this is not working "
-	ydash = np.dot(np.squeeze(np.asarray(doutput.T)),x)
-	print ydash
-	'''
 	
-
-	''''
-	plt.plot(x, y, 'o', label='Original data', markersize=10)
-	plt.plot(x, m*x + c, 'r', label='Fitted line')
-	plt.legend()
-	plt.show()
-	'''
-
 #Function to take in the arrays and then 
 # array([  1.,  26.,  38.,  16.,   0.,  33.,  41.,  35.,  13.,  24.,  39.,
 #        9.,  17.,   0.,  56.,  30.,   0.,   0.,  58.])
