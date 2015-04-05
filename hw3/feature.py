@@ -136,9 +136,8 @@ def predict(rdd,weight):
 
 def update_yd(d):
 	yd = np.dot(weight.T,d[1][:18])
-	d = list(d)
-	d[1] = np.append(d[1], yd)
-	return tuple(d)
+	y = d[1][18]
+	return (y - yd) * (y - yd)
 
 
 def main():
@@ -175,6 +174,11 @@ def main():
 	print train_weight.shape
 
 	learn_ydash = test.map(lambda d: np.dot(train_weight.T,d[1][:18]))
+
+	#-----Code to calculate RMSE--------------------------#
+	#update_yd needs to know the weight.T before hand
+	tdash = tupdate.map(lambda d: update_yd(d))
+
 
 
 if __name__ == '__main__':
