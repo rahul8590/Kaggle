@@ -128,6 +128,19 @@ def calc_s2(x):
 	return sig2
 
 
+def predict(rdd,weight):
+	pval = rdd.filter(lambda x: x[0][0] == 'en' and x[0][1]=='yahoo' ) \
+	 		  .map(lambda d: np.dot(train_weight.T,d[1][:18])).collect()
+	print "predicted value is",pval
+
+
+def update_yd(d):
+	yd = np.dot(weight.T,d[1][:18])
+	d = list(d)
+	d[1] = np.append(d[1], yd)
+	return tuple(d)
+
+
 def main():
 	tfile = readfile()
 
@@ -140,12 +153,29 @@ def main():
 
 	#mat = np.matrix(tupdate.values().collect())
 	#ols(mat)
+
+	#Learning Predictions in here
 	sig1 = tupdate.map(lambda d: (calc(d[1]))).reduce(lambda p,q:np.add(p,q))
 	sig2 = tupdate.map(lambda d: (calc_s2(d[1]))).reduce(lambda p,q:np.add(p,q))
 
 	weight = np.dot(np.linalg.inv(sig1),sig2)
 	print "the weight vector is",weight
 	print weight.shape
+
+	ydash = tupdate.map(lambda d: np.dot(weight.T,d[1][:18])).collect()
+	#--------------------- Learning Ends in here -------------------------#
+
+	train  = tupdate.filter(lambda x: x[0][0] == 'en' and len(x[0][1])%2==0 )
+	test = tupdate.filter(lambda x: x[0][0] == 'en' and len(x[0][1])%2!=0 ) 
+
+	sig_t1 = train.map(lambda d: (calc(d[1]))).reduce(lambda p,q:np.add(p,q))
+	sig_t2 = train.map(lambda d: (calc_s2(d[1]))).reduce(lambda p,q:np.add(p,q))
+	train_weight = np.dot(np.linalg.inv(sig_t1),sig_t2)
+	print "the weight vector is",train_weight
+	print train_weight.shape
+
+	learn_ydash = test.map(lambda d: np.dot(train_weight.T,d[1][:18]))
+
 
 if __name__ == '__main__':
 	conf = SparkConf().setAppName('hw3').setMaster("master")
