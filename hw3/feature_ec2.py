@@ -67,6 +67,16 @@ def calc_s2(x):
 	sig2 = pred * x[18]
 	return sig2
 
+#Combines the functionality of both calc and calc_s2
+def ncalc(x):
+	pred = x[:18]
+	sig1 = np.outer(pred, pred)
+	sig2 = pred * x[18]
+	return (sig1,sig2)
+
+
+
+
 
 def predict(rdd,weight):
 	pval = rdd.filter(lambda x: x[0][0] == 'en' and x[0][1]=='yahoo' ) \
@@ -75,8 +85,7 @@ def predict(rdd,weight):
 
 
 #Function required to calculate RMSE
-def update_yd(d):
-	global train_weight
+def update_yd(d,train_weight):
 	yd = np.dot(train_weight.T,d[1][:18])
 	y = d[1][18]
 	return (y - yd) * (y - yd)
@@ -104,9 +113,19 @@ def main():
 	train  = tupdate.filter(lambda x: len(x[0][1])%2==0 )
 	test = tupdate.filter(lambda x: len(x[0][1])%2!=0 ) 
 
+	'''
 	sig_t1 = train.map(lambda d: (calc(d[1]))).reduce(lambda p,q:np.add(p,q))
 	sig_t2 = train.map(lambda d: (calc_s2(d[1]))).reduce(lambda p,q:np.add(p,q))
-	train_weight = np.dot(np.linalg.inv(sig_t1),sig_t2)
+	'''
+	
+	#Reduces the computation time by half
+	sig_val = train.map(lambda d: (ncalc(d[1]))) \
+					.reduce(lambda p,q:(np.add(p[0],q[0]),np.add(p[1],q[1])))
+	#sig_val[0] == sig_t1
+	#sig_val[1] == sig_t2
+	
+
+	train_weight = np.dot(np.linalg.inv(sig_val[0]),sig_val[1])
 	print "the weight vector is",train_weight
 	print train_weight.shape
 
@@ -114,7 +133,7 @@ def main():
 
 	#-----Code to calculate RMSE--------------------------#
 	#update_yd needs to know the weight.T before hand
-	tdash = test.map(lambda d: update_yd(d))
+	tdash = test.map(lambda d: update_yd(d,train_weight))
 	rmse =  math.sqrt(tdash.mean())
 	print "the rmse error is ", rmse
 
