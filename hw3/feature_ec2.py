@@ -11,7 +11,8 @@ def set_feature(view,f):
 def readfile():
 	fr = range(6,23)
 	tfile = sc.union([sc.textFile(basepath+str(f)+".txt")
-		                .map(lambda view: set_feature(view,f)) 
+		                .map(lambda view: set_feature(view,f))
+		                .filter(lambda w: w[0][0] == 'en') 
 		                .reduceByKey(lambda a, b: a+b)
 		                for f in fr])
 	return tfile
@@ -100,8 +101,8 @@ def main():
 	tupdate = tgbr.map(lambda d: (d[0],upd_t23(d)))
 
 
-	train  = tupdate.filter(lambda x: x[0][0] == 'en' and len(x[0][1])%2==0 )
-	test = tupdate.filter(lambda x: x[0][0] == 'en' and len(x[0][1])%2!=0 ) 
+	train  = tupdate.filter(lambda x: len(x[0][1])%2==0 )
+	test = tupdate.filter(lambda x: len(x[0][1])%2!=0 ) 
 
 	sig_t1 = train.map(lambda d: (calc(d[1]))).reduce(lambda p,q:np.add(p,q))
 	sig_t2 = train.map(lambda d: (calc_s2(d[1]))).reduce(lambda p,q:np.add(p,q))
