@@ -76,8 +76,6 @@ def ncalc(x):
 
 
 
-
-
 def predict(rdd,weight):
 	pval = rdd.filter(lambda x: x[0][0] == 'en' and x[0][1]=='yahoo' ) \
 	 		  .map(lambda d: np.dot(train_weight.T,d[1][:18])).collect()
@@ -86,7 +84,7 @@ def predict(rdd,weight):
 
 #Function required to calculate RMSE
 def update_yd(d,train_weight):
-	yd = np.dot(train_weight.T,d[1][:18])
+	yd = np.dot(train_weight,d[1][:18])
 	y = d[1][18]
 	return (y - yd) * (y - yd)
 
@@ -102,10 +100,10 @@ def upd_t23(tgbr):
 
 
 def main():
-	global dtarget,train_weight
+	global dtarget
 	tfile = readfile()
 	dtarget = get_target_info()
-	print "the data in 23rd file is", dtarget
+	#print "the data in 23rd file is", dtarget
 	tgbr = group(tfile)
 	tupdate = tgbr.map(lambda d: (d[0],upd_t23(d)))
 
@@ -117,7 +115,7 @@ def main():
 	sig_t1 = train.map(lambda d: (calc(d[1]))).reduce(lambda p,q:np.add(p,q))
 	sig_t2 = train.map(lambda d: (calc_s2(d[1]))).reduce(lambda p,q:np.add(p,q))
 	'''
-	
+
 	#Reduces the computation time by half
 	sig_val = train.map(lambda d: (ncalc(d[1]))) \
 					.reduce(lambda p,q:(np.add(p[0],q[0]),np.add(p[1],q[1])))
@@ -126,6 +124,10 @@ def main():
 	
 
 	train_weight = np.dot(np.linalg.inv(sig_val[0]),sig_val[1])
+	
+	with open('result.txt','a') as fr:
+		fr.write("the weight vector is" + str(train_weight))
+
 	print "the weight vector is",train_weight
 	print train_weight.shape
 
@@ -135,10 +137,13 @@ def main():
 	#update_yd needs to know the weight.T before hand
 	tdash = test.map(lambda d: update_yd(d,train_weight))
 	rmse =  math.sqrt(tdash.mean())
-	print "the rmse error is ", rmse
+	with open('result.txt','a') as fr:
+		print "the rmse error is ", rmse
+		fr.write("the rmse error is " +str(rmse))
+
 
 
 if __name__ == '__main__':
-	conf = SparkConf().setAppName('hw3').setMaster("local")
+	conf = SparkConf().setAppName('hw3').setMaster("spark://ec2-52-4-136-15.compute-1.amazonaws.com:7077")
 	sc = SparkContext(conf=conf)
 	main()
