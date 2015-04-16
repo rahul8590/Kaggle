@@ -1,0 +1,210 @@
+Problem 1a)
+
+rahul@g3ck0:/rahul_extra/MachineLearning/Kaggle/hw4/data$ python run_me.py 
+Starting KMeans learning...
+
+    Iteration 0:  Average distortion: 1.6484312
+
+    Iteration 1:  Average distortion: 0.9721209
+
+    Iteration 2:  Average distortion: 0.9477406
+
+    Iteration 3:  Average distortion: 0.9408405
+
+    Iteration 4:  Average distortion: 0.9383447
+
+    Iteration 5:  Average distortion: 0.9377556
+
+    Iteration 6:  Average distortion: 0.9375879
+
+    Iteration 7:  Average distortion: 0.9375710
+
+    Iteration 8:  Average distortion: 0.9375710
+
+KMeans converged.
+
+K=2 Errors: 0.9375710 1.0071048 1.0170229
+Starting KMeans learning...
+
+    Iteration 0:  Average distortion: 1.6232999
+
+    Iteration 1:  Average distortion: 0.9718030
+
+    Iteration 2:  Average distortion: 0.9583256
+
+    Iteration 3:  Average distortion: 0.9396038
+
+    Iteration 4:  Average distortion: 0.9276453
+
+    Iteration 5:  Average distortion: 0.9241244
+
+    Iteration 6:  Average distortion: 0.9236580
+
+    Iteration 7:  Average distortion: 0.9232911
+
+    Iteration 8:  Average distortion: 0.9231706
+
+    Iteration 9:  Average distortion: 0.9231037
+
+    Iteration 10:  Average distortion: 0.9231024
+
+    Iteration 11:  Average distortion: 0.9231024
+
+KMeans converged.
+
+K=3 Errors: 0.9231024 1.0113694 1.0210774
+Starting KMeans learning...
+
+    Iteration 0:  Average distortion: 1.6075646
+
+    Iteration 1:  Average distortion: 0.9549084
+
+    Iteration 2:  Average distortion: 0.9299792
+
+    Iteration 3:  Average distortion: 0.9188375
+
+    Iteration 4:  Average distortion: 0.9143632
+
+    Iteration 5:  Average distortion: 0.9124571
+
+    Iteration 6:  Average distortion: 0.9115237
+
+    Iteration 7:  Average distortion: 0.9108700
+
+    Iteration 8:  Average distortion: 0.9103415
+
+    Iteration 9:  Average distortion: 0.9099994
+
+    Iteration 10:  Average distortion: 0.9098126
+
+    Iteration 11:  Average distortion: 0.9097742
+
+    Iteration 12:  Average distortion: 0.9096110
+
+    Iteration 13:  Average distortion: 0.9089809
+
+    Iteration 14:  Average distortion: 0.9085898
+
+    Iteration 15:  Average distortion: 0.9085093
+
+    Iteration 16:  Average distortion: 0.9084834
+
+    Iteration 17:  Average distortion: 0.9082211
+
+    Iteration 18:  Average distortion: 0.9079486
+
+    Iteration 19:  Average distortion: 0.9077190
+
+    Iteration 20:  Average distortion: 0.9076322
+
+    Iteration 21:  Average distortion: 0.9076322
+
+KMeans converged.
+
+K=4 Errors: 0.9076322 1.0279149 1.0362588
+Starting KMeans learning...
+
+    Iteration 0:  Average distortion: 1.6090598
+
+    Iteration 1:  Average distortion: 0.9548705
+
+    Iteration 2:  Average distortion: 0.9383986
+
+    Iteration 3:  Average distortion: 0.9198808
+
+    Iteration 4:  Average distortion: 0.9082023
+
+    Iteration 5:  Average distortion: 0.9034046
+
+    Iteration 6:  Average distortion: 0.9009433
+
+    Iteration 7:  Average distortion: 0.8994324
+
+    Iteration 8:  Average distortion: 0.8985191
+
+    Iteration 9:  Average distortion: 0.8977850
+
+    Iteration 10:  Average distortion: 0.8975808
+
+    Iteration 11:  Average distortion: 0.8973579
+
+    Iteration 12:  Average distortion: 0.8973347
+
+    Iteration 13:  Average distortion: 0.8973298
+
+    Iteration 14:  Average distortion: 0.8972973
+
+    Iteration 15:  Average distortion: 0.8972865
+
+    Iteration 16:  Average distortion: 0.8972835
+
+    Iteration 17:  Average distortion: 0.8972835
+
+KMeans converged.
+
+K=5 Errors: 0.8972835 1.0191493 1.0270883
+Starting KMeans learning...
+
+    Iteration 0:  Average distortion: 1.6056359
+
+    Iteration 1:  Average distortion: 0.9415786
+
+    Iteration 2:  Average distortion: 0.9222121
+
+    Iteration 3:  Average distortion: 0.9084530
+
+    Iteration 4:  Average distortion: 0.8983716
+
+    Iteration 5:  Average distortion: 0.8951910
+
+    Iteration 6:  Average distortion: 0.8932992
+
+    Iteration 7:  Average distortion: 0.8923565
+
+    Iteration 8:  Average distortion: 0.8915990
+
+    Iteration 9:  Average distortion: 0.8914627
+
+    Iteration 10:  Average distortion: 0.8914169
+
+    Iteration 11:  Average distortion: 0.8912909
+
+    Iteration 12:  Average distortion: 0.8910252
+
+    Iteration 13:  Average distortion: 0.8910195
+
+    Iteration 14:  Average distortion: 0.8910195
+
+KMeans converged.
+
+K=6 Errors: 0.8910195 1.0208988 1.0328193
+Starting KMeans learning...
+
+    Iteration 0:  Average distortion: 1.5810416
+
+    Iteration 1:  Average distortion: 0.9325548
+
+    Iteration 2:  Average distortion: 0.9090478
+
+    Iteration 3:  Average distortion: 0.8951503
+
+    Iteration 4:  Average distortion: 0.8882378
+
+    Iteration 5:  Average distortion: 0.8859976
+
+    Iteration 6:  Average distortion: 0.8851383
+
+    Iteration 7:  Average distortion: 0.8845031
+
+    Iteration 8:  Average distortion: 0.8843295
+
+    Iteration 9:  Average distortion: 0.8840854
+
+    Iteration 10:  Average distortion: 0.8839295
+
+    Iteration 11:  Average distortion: 0.8839295
+
+KMeans converged.
+
+K=7 Errors: 0.8839295 1.0294035 1.0404580
+=========================================================================
