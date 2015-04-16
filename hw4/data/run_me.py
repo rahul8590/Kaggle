@@ -136,9 +136,9 @@ final_result = [[(0.9966367263864635, 1.0366734384117333), (0.9966367263864635, 
 
 final_t,final_v = cal_vt(final_result)
 
-max_t = [ i[0] for i in final_t]
-min_t = [ i[1] for i in final_t]
-avg = [i[2] for i in final_t]
+max_t = [ i[0] for i in final_v]
+min_t = [ i[1] for i in final_v]
+avg = [i[2] for i in final_v]
 
 plot(max_t, min_t, avg)
 
