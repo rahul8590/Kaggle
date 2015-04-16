@@ -2,7 +2,7 @@ import numpy as np
 import scipy.sparse
 import kmeans
 import matplotlib.pyplot as plt
-
+from scipy.spatial import distance
 #Define the data directory (change if you place data elsewhere)
 data_dir = "/rahul_extra/MachineLearning/Kaggle/hw4/data/" 
 
@@ -88,7 +88,7 @@ def plot(maxv,minv,avg):
 	plt.style.use('ggplot')
 	x = range(1,11)
 	#plt.plot(x,maxv,label='max')
-	plt.plot(x,avg,label='min')
+	plt.plot(x,avg,label='Average RMSE')
 	#plt.plot(x,avg,label='avg')
 	
 	#ploting straingt line 
@@ -100,16 +100,21 @@ def plot(maxv,minv,avg):
 	pt1 = 0
 	pt2 = 0
 	for x in range(1,len(avg)):
-		y = -0.01*x  + 1  #Equation of st line calculated
+		#y = -0.01*x  + 1  #Equation of st line calculated for test set
+		y = 0.001*x + 1.034 #Equation for validation set
 		a = np.array([x,avg[x-1]])
 		b = np.array([x,y])
-		dist = np.linalg.norm(a-b)
+		#dist = distance.euclidean(a,b)
+		dist = np.fabs(y - avg[x-1])
+		print "distance is ",dist
 		if maxd < dist:
 			maxd = dist
 			pt1 = a
 			pt2 = b
+			print "iterim max distance",maxd , pt1, pt2
+
 	print "Max distance between points ", maxd 
-	print "poiints are", pt1 ,pt2
+	print "points are", pt1 ,pt2
 
 	#plotting the maximum distance between the 2 points 
 	plt.scatter(pt1[0],pt1[1],s=40)
