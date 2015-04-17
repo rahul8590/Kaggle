@@ -1,214 +1,6 @@
 Problem 1a)
 
-rahul@g3ck0:/rahul_extra/MachineLearning/Kaggle/hw4/data$ python run_me.py 
-Starting KMeans learning...
-
-    Iteration 0:  Average distortion: 1.6484312
-
-    Iteration 1:  Average distortion: 0.9721209
-
-    Iteration 2:  Average distortion: 0.9477406
-
-    Iteration 3:  Average distortion: 0.9408405
-
-    Iteration 4:  Average distortion: 0.9383447
-
-    Iteration 5:  Average distortion: 0.9377556
-
-    Iteration 6:  Average distortion: 0.9375879
-
-    Iteration 7:  Average distortion: 0.9375710
-
-    Iteration 8:  Average distortion: 0.9375710
-
-KMeans converged.
-
-K=2 Errors: 0.9375710 1.0071048 1.0170229
-Starting KMeans learning...
-
-    Iteration 0:  Average distortion: 1.6232999
-
-    Iteration 1:  Average distortion: 0.9718030
-
-    Iteration 2:  Average distortion: 0.9583256
-
-    Iteration 3:  Average distortion: 0.9396038
-
-    Iteration 4:  Average distortion: 0.9276453
-
-    Iteration 5:  Average distortion: 0.9241244
-
-    Iteration 6:  Average distortion: 0.9236580
-
-    Iteration 7:  Average distortion: 0.9232911
-
-    Iteration 8:  Average distortion: 0.9231706
-
-    Iteration 9:  Average distortion: 0.9231037
-
-    Iteration 10:  Average distortion: 0.9231024
-
-    Iteration 11:  Average distortion: 0.9231024
-
-KMeans converged.
-
-K=3 Errors: 0.9231024 1.0113694 1.0210774
-Starting KMeans learning...
-
-    Iteration 0:  Average distortion: 1.6075646
-
-    Iteration 1:  Average distortion: 0.9549084
-
-    Iteration 2:  Average distortion: 0.9299792
-
-    Iteration 3:  Average distortion: 0.9188375
-
-    Iteration 4:  Average distortion: 0.9143632
-
-    Iteration 5:  Average distortion: 0.9124571
-
-    Iteration 6:  Average distortion: 0.9115237
-
-    Iteration 7:  Average distortion: 0.9108700
-
-    Iteration 8:  Average distortion: 0.9103415
-
-    Iteration 9:  Average distortion: 0.9099994
-
-    Iteration 10:  Average distortion: 0.9098126
-
-    Iteration 11:  Average distortion: 0.9097742
-
-    Iteration 12:  Average distortion: 0.9096110
-
-    Iteration 13:  Average distortion: 0.9089809
-
-    Iteration 14:  Average distortion: 0.9085898
-
-    Iteration 15:  Average distortion: 0.9085093
-
-    Iteration 16:  Average distortion: 0.9084834
-
-    Iteration 17:  Average distortion: 0.9082211
-
-    Iteration 18:  Average distortion: 0.9079486
-
-    Iteration 19:  Average distortion: 0.9077190
-
-    Iteration 20:  Average distortion: 0.9076322
-
-    Iteration 21:  Average distortion: 0.9076322
-
-KMeans converged.
-
-K=4 Errors: 0.9076322 1.0279149 1.0362588
-Starting KMeans learning...
-
-    Iteration 0:  Average distortion: 1.6090598
-
-    Iteration 1:  Average distortion: 0.9548705
-
-    Iteration 2:  Average distortion: 0.9383986
-
-    Iteration 3:  Average distortion: 0.9198808
-
-    Iteration 4:  Average distortion: 0.9082023
-
-    Iteration 5:  Average distortion: 0.9034046
-
-    Iteration 6:  Average distortion: 0.9009433
-
-    Iteration 7:  Average distortion: 0.8994324
-
-    Iteration 8:  Average distortion: 0.8985191
-
-    Iteration 9:  Average distortion: 0.8977850
-
-    Iteration 10:  Average distortion: 0.8975808
-
-    Iteration 11:  Average distortion: 0.8973579
-
-    Iteration 12:  Average distortion: 0.8973347
-
-    Iteration 13:  Average distortion: 0.8973298
-
-    Iteration 14:  Average distortion: 0.8972973
-
-    Iteration 15:  Average distortion: 0.8972865
-
-    Iteration 16:  Average distortion: 0.8972835
-
-    Iteration 17:  Average distortion: 0.8972835
-
-KMeans converged.
-
-K=5 Errors: 0.8972835 1.0191493 1.0270883
-Starting KMeans learning...
-
-    Iteration 0:  Average distortion: 1.6056359
-
-    Iteration 1:  Average distortion: 0.9415786
-
-    Iteration 2:  Average distortion: 0.9222121
-
-    Iteration 3:  Average distortion: 0.9084530
-
-    Iteration 4:  Average distortion: 0.8983716
-
-    Iteration 5:  Average distortion: 0.8951910
-
-    Iteration 6:  Average distortion: 0.8932992
-
-    Iteration 7:  Average distortion: 0.8923565
-
-    Iteration 8:  Average distortion: 0.8915990
-
-    Iteration 9:  Average distortion: 0.8914627
-
-    Iteration 10:  Average distortion: 0.8914169
-
-    Iteration 11:  Average distortion: 0.8912909
-
-    Iteration 12:  Average distortion: 0.8910252
-
-    Iteration 13:  Average distortion: 0.8910195
-
-    Iteration 14:  Average distortion: 0.8910195
-
-KMeans converged.
-
-K=6 Errors: 0.8910195 1.0208988 1.0328193
-Starting KMeans learning...
-
-    Iteration 0:  Average distortion: 1.5810416
-
-    Iteration 1:  Average distortion: 0.9325548
-
-    Iteration 2:  Average distortion: 0.9090478
-
-    Iteration 3:  Average distortion: 0.8951503
-
-    Iteration 4:  Average distortion: 0.8882378
-
-    Iteration 5:  Average distortion: 0.8859976
-
-    Iteration 6:  Average distortion: 0.8851383
-
-    Iteration 7:  Average distortion: 0.8845031
-
-    Iteration 8:  Average distortion: 0.8843295
-
-    Iteration 9:  Average distortion: 0.8840854
-
-    Iteration 10:  Average distortion: 0.8839295
-
-    Iteration 11:  Average distortion: 0.8839295
-
-KMeans converged.
-
-K=7 Errors: 0.8839295 1.0294035 1.0404580
 =========================================================================
-
 
 train,val values for K ranging from (2 , 4 ,8,16 .. 1024 ) has been run 10 times 
 i guess, 10 different random seeds 
@@ -316,3 +108,79 @@ max => 1.06213021983
 min => 1.05276374899
 avg => 1.05784904144
 -------------------------------------------------------
+======================================================================================
+
+Movie Ratings 
+
+In [170]: rc = Counter(r0)
+
+In [171]: rc.most_common(5)
+Out[171]: 
+[(99, 2.350515463917526),
+ (49, 2.3247422680412373),
+ (126, 1.8144329896907216),
+ (173, 1.731958762886598),
+ (180, 1.7061855670103092)]
+
+In [172]: r1 = dt[z==1]
+
+In [173]: r1 = user_ratings(cr1)
+---------------------------------------------------------------------------
+NameError                                 Traceback (most recent call last)
+<ipython-input-173-5e0a5d0da4b1> in <module>()
+----> 1 r1 = user_ratings(cr1)
+
+NameError: name 'cr1' is not defined
+
+In [174]: cr1 = dt[z==1]
+
+In [175]: r1 = user_ratings(cr1)
+
+In [176]: rc1 = Counter(r1)
+
+In [177]: rc1.most_common(5)
+Out[177]: 
+[(49, 2.1280487804878048),
+ (99, 2.024390243902439),
+ (285, 1.9390243902439024),
+ (126, 1.896341463414634),
+ (180, 1.774390243902439)]
+
+In [178]: cr2 = dt [z==2]
+
+In [179]: rc2 = Counter(user_ratings(cr2))
+
+In [180]: rc2.most_common(5)
+Out[180]: 
+[(49, 2.056603773584906),
+ (257, 1.7044025157232705),
+ (180, 1.6352201257861636),
+ (287, 1.5849056603773586),
+ (312, 1.5723270440251573)]
+
+In [181]: cr3 = dt [z==3]
+
+In [182]: rc3 = Counter(user_ratings(cr3))
+
+In [183]: rc3.most_common(5)
+Out[183]: 
+[(49, 2.307142857142857),
+ (180, 1.9285714285714286),
+ (299, 1.9071428571428573),
+ (120, 1.792857142857143),
+ (236, 1.7857142857142858)]
+
+In [184]: cr4 = dt [z==4]
+
+In [185]: rc4 = Counter(user_ratings(cr4))
+
+In [186]: rc4.most_common(5)
+Out[186]: 
+[(49, 2.7412587412587412),
+ (99, 2.2552447552447554),
+ (180, 2.1818181818181817),
+ (173, 2.055944055944056),
+ (126, 1.972027972027972)]
+
+=============================================================================
+
